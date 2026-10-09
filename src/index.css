@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-teal-primary: #0F766E;
+  --color-teal-light: #14B8A6;
+  --color-amber-accent: #F59E0B;
+  --color-bg-base: #0A0F1A;
+  --color-bg-card: #111827;
+  --color-bg-card-hover: #1F2937;
+  --color-border-subtle: #1F2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0A0F1A;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar by default, show on hover */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Detection pill animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detection-pill {
+  animation: fadeInUp 0.2s ease-out;
+}
+
+/* Scanning line animation for active webcam */
+@keyframes scanLine {
+  0% { top: 0%; opacity: 0.8; }
+  50% { opacity: 0.4; }
+  100% { top: 100%; opacity: 0.8; }
+}
+
+.scan-line {
+  animation: scanLine 3s linear infinite;
+}
+
+/* Pulse for live indicator */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.live-dot {
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+
+/* Stat number transition */
+.stat-number {
+  transition: all 0.3s ease;
+}
+
+/* Confidence slider styling */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #1F2937;
+  border-radius: 9999px;
+  height: 4px;
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0F766E;
+  cursor: pointer;
+  border: 2px solid #14B8A6;
+  transition: background 0.2s;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  background: #14B8A6;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #0F766E;
+  cursor: pointer;
+  border: 2px solid #14B8A6;
+}
+
